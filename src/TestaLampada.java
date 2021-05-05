@@ -10,7 +10,7 @@ public class TestaLampada {
         lampada.mostrarEstado();
 
         lampada.mudarEstado();
-
+        lampada.mostrarEstado();
 
     }
 

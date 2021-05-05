@@ -3,28 +3,29 @@ public class TestaContaCorrente {
     public static void main(String[] args){
 
         ContaCorrente conta = new ContaCorrente();
-        conta.numero = "123456";
-        conta.agencia = "1234";
-        conta.especial = true;
-        conta.limiteEspecial = 500;
-        conta.saldo = -10;
 
-        System.out.println("Saldo da conta " + conta.numero + " = " + conta.saldo);
+        conta.setNumero("123456");
+        conta.setAgencia("1234");
+        conta.setEspecial(true);
+        conta.setLimiteEspecial(500);
+        conta.setSaldo(-10);
+
+        System.out.println("Saldo da conta " + conta.getNumero() + " = " + conta.getSaldo());
 
         boolean saqueEfetuado = conta.sacar(10);
 
         if(saqueEfetuado){
-            System.out.println("Saque Efetuado com sucesso! " + conta.saldo);
+            System.out.println("Saque Efetuado com sucesso! " + conta.getSaldo());
         }else{
-            System.out.println("Não foi possível sacar, saldo insuficiente! " + conta.saldo);
+            System.out.println("Não foi possível sacar, saldo insuficiente! " + conta.getSaldo());
         }
 
         saqueEfetuado = conta.sacar(500);
 
         if(saqueEfetuado){
-            System.out.println("Saque Efetuado com sucesso! " + conta.saldo);
+            System.out.println("Saque Efetuado com sucesso! " + conta.getSaldo());
         }else{
-            System.out.println("Não foi possível sacar, saldo insuficiente! " + conta.saldo);
+            System.out.println("Não foi possível sacar, saldo insuficiente! " + conta.getSaldo());
         }
 
         conta.depositar(500);
