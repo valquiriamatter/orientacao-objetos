@@ -5,7 +5,6 @@ public class Curso {
     private Professor professor;
     private Aluno[] alunos;
 
-
     public String getNome() {
         return nome;
     }
@@ -37,4 +36,42 @@ public class Curso {
     public void setAlunos(Aluno[] alunos) {
         this.alunos = alunos;
     }
+
+    public String obterInfo() {
+
+        String info = "Curso: " + this.nome + "\n";
+
+        if (professor != null) {
+            info += professor.obterInfo();
+        }
+        if (alunos != null) {
+            System.out.println("---- Alunos -----");
+
+            for (Aluno aluno : alunos) {
+                if(aluno != null){
+                    info += aluno.obterInfo();
+                    info += "\n";
+                }
+            }
+
+            info += "\nMédia da Turma: " + obterMediaTurma();
+        }
+
+
+        return info;
+    }
+
+    public double obterMediaTurma() {
+        double soma = 0;
+
+        for (Aluno aluno : alunos) {
+            if (aluno != null) {
+                soma = aluno.obterMedia();
+            }
+        }
+
+        return soma/alunos.length;
+    }
+
+
 }

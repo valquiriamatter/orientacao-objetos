@@ -5,6 +5,7 @@ public class Aluno {
     private String nomeCurso;
     private String[] nomeDisciplinas;
     private double[][] notasDisciplinas;
+    private double[] notas;
 
     public Aluno() {
         nomeDisciplinas = new String[3];
@@ -16,7 +17,7 @@ public class Aluno {
         this.matricula = matricula;
         this.nomeCurso = nomeCurso;
         this.nomeDisciplinas = new String[3];
-        this.notasDisciplinas = new double[3][4];
+        //this.notasDisciplinas = new double[3][4];
     }
 
     public String getNome() {
@@ -114,5 +115,45 @@ public class Aluno {
     }
 
 
+    public double[] getNotas() {
+        return notas;
+    }
 
+    public void setNotas(double[] notas) {
+        this.notas = notas;
+    }
+
+    public String obterInfo(){
+
+        String info = " Aluno: " + this.nome + "; ";
+        info += "Matricula: " + this.matricula + "; ";
+        info += "Notas: ";
+
+        double soma = 0;
+
+        for (double nota : notas){
+            info += nota + " ";
+            soma += nota;
+        }
+
+        double media = soma/4;
+        info += "\nMédia: " + media + " - ";
+
+        if(media>=7){
+            info += "Aprovado!";
+        }else{
+            info += "Reprovado!";
+        }
+
+        return info;
+    }
+
+    public double obterMedia(){
+        double soma = 0;
+        for (double nota : notas){
+            soma += nota;
+        }
+
+        return soma/4;
+    }
 }
